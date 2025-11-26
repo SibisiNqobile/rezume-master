@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Custom STM32 Dev Board | Nqobile Sibisi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/flexslider.css">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html#section-portfolio">← Back to Portfolio</a>
+  </div>
+</nav>
+
+<section class="site-section">
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">Custom STM32 Dev Board</h2>
+        <p class="lead">A STM32F107RCTx-based development board with USB and SWD interfaces, designed for embedded prototyping.</p>
+      </div>
+    </div>
+
+    <!-- Intro Image and Overview -->
+    <div class="row align-items-center mb-5">
+
+      <div class="col-md-6">
+        <h4>Project Overview</h4>
+        <p>The goal was to create a low-cost, compact STM32-based dev board with all essential interfaces exposed—USB, SWD, and mapped I/Os—along with three user/debug LEDs.</p>
+      
+        <div class="col-md-6">
+          <video width="630" height="360" controls>
+          <source src="../videos/STM32 Intro Video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+      </div>
+
+        <h4>Technologies Used</h4>
+        <ul>
+          <li>KiCad PCB Design Suite</li>
+          <li>STM32CubeIDE</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Schematic Design Section -->
+    <div class="mb-5">
+      <h3>Schematic Design</h3>
+
+      <h4>Microcontroller Selection</h4>
+      <p>STM32F107RCTx was selected for its integrated USB peripheral and rich I/O set.</p>
+
+      <div class="row align-items-center mb-4">
+        
+        <div class="col-md-6">
+          <h4>Power Supply Unit (PSU)</h4>
+          <img src="../images/STM32 DEV BOARD-PSU CCT.jpg" alt="Power Supply Unit Circuit" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          
+          <p>Linear PSU based on the ASM1117-3.3 voltage regulator was used to step down the +5V from the USB to 3.3V. 
+            C1 and C2 are the input and output smoothing capacitors. R1 is the 1.5kΩ current limiting resistor for the LED D1, which serves as the power indicator.</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <h4>Microcontroller Decoupling Capacitors</h4>
+          <img src="../images/STM32 DEV BOARD-DECOUPLING CAPACITORS.jpg" alt="Decoupling Capacitors" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          
+          <p>In this design C3, C4, C5, C6 and C7 are decoupling capacitors for the microcontroller.
+             Their primary function is to stabilize the supply voltage by acting as local energy reservoirs. 
+             During operation the microcontroller can draw sudden bursts of current due to internal switching. 
+             This current can briefly dip the voltage on the power rail potentially leading the microcontroller to brown out or cause erratic behavior.
+              C4, C5, C6 and C7 are 100nf ceramic capacitors chosen for their effectiveness in filtering high frequency noise, 
+              C3 is a complementary 10 nano-farad ceramic capacitors included to further filter the higher frequencies and transients.
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <img src="../images/STM32 DEV BOARD-VDDA Filtering.jpg" alt="VDDA Filtering" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h4>Analogue Voltage Stabilisation and Filtering</h4>
+          <p>Ferrite beads and capacitors were used to stabilize the analog supply for precision components.</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <img src="../images/STM32 DEV BOARD-OSC CIRCUIT.jpg" alt="Crystal Oscillator Circuit" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h4>Crystal Oscillator Circuit</h4>
+          <p>
+          The crystal’s load capacitance (CL) was taken from the datasheet, which specifies a value of 30 pF. 
+          This is the capacitance required for the crystal to oscillate at its rated frequency. The stray 
+          capacitance (Cs), which includes PCB trace, pin, and parasitic capacitances, was estimated to be 5 pF.
+          </p>
+
+          <p>
+          Using the formula for two equal capacitors connected to ground, the required capacitor value is:
+          CL = 2 × (CLo − Cs). Substituting the values gives:2 × (30 pF − 5 pF) = 50 pF.
+          </p>
+
+          <p>
+          The nearest standard capacitor value, 51 pF, was selected for C12 and C13.
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <img src="../images/STM32 DEV BOARD-UART PULLUP RESISTORS.jpg" alt="UART Pull-ups" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h4>Communication Interfaces</h4>
+          <p>USB FS and UART headers were included for both firmware upload and serial debugging.</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <img src="../images/STM32 DEV BOARD-DEBUG LKED CCT.jpg" alt="Debug and LED Circuit" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h4>Debug and LED Circuit</h4>
+          <p>
+        The LEDs D2, D3, and D4 are included for quick debugging. Each LED is connected to the 3.3 V rail through its respective current-limiting resistor (R4, R5, and R6), 
+        and the cathodes are connected to microcontroller pins PB8, PA1, and PC0. 
+        Because the anodes are tied to 3.3 V, the LEDs are activated by driving the microcontroller pins low.
+        </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img src="images/io-mapping.jpg" alt="GPIO Mapping" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h4>I/O Mapping</h4>
+          <p>Common GPIOs were routed to headers for flexibility in testing peripherals. The LEDs D2, D3, and D4 along with their limiting resistors R4, R5, and R65 were mapped accordingly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PCB Layout -->
+    <div class="mb-5">
+      <h3>PCB Layout</h3>
+
+      <div class="mb-4">
+        <h4>Footprint Assignment</h4>
+        <img src="images/footprint-assignment.jpg" alt="Footprint Assignment" class="img-fluid rounded shadow mb-2">
+        <p>Components were selected for compactness and availability; footprints were verified in 3D view.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Layer Count & Dimensions</h4>
+        <img src="images/pcb-dimensions.jpg" alt="PCB Dimensions" class="img-fluid rounded shadow mb-2">
+        <p>A 2-layer PCB design was used to minimize cost. Final dimensions: 80mm x 50mm.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>MCU Placement</h4>
+        <img src="images/mcu-placement.jpg" alt="MCU Placement" class="img-fluid rounded shadow mb-2">
+        <p>The microcontroller was centrally placed to reduce trace lengths to supporting components.</p>
+      </div>
+    </div>
+
+    <!-- Fabrication Section -->
+    <div class="mb-5">
+      <h3>PCB Fabrication</h3>
+
+      <div class="mb-4">
+        <h4>Gerber Output</h4>
+        <img src="images/gerber-view.jpg" alt="Gerber Files" class="img-fluid rounded shadow mb-2">
+        <p>Standard Gerber and drill files were generated and verified using Gerber Viewer.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Manufacturer</h4>
+        <img src="images/jlcpcb-logo.jpg" alt="JLCPCB" class="img-fluid rounded shadow mb-2">
+        <p>JLCPCB was chosen for prototyping due to cost and turnaround time.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Fabrication Specs</h4>
+        <img src="images/fabrication-specs.jpg" alt="Fabrication Specs" class="img-fluid rounded shadow mb-2">
+        <p>FR4, 1.6mm thickness, 1oz copper, green solder mask.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Cost & Delivery</h4>
+        <img src="images/cost-delivery.jpg" alt="Cost & Delivery" class="img-fluid rounded shadow mb-2">
+        <p>Total fabrication cost was under $10 with delivery within 7 business days.</p>
+      </div>
+    </div>
+
+    <!-- Assembly Section -->
+    <div class="mb-5">
+      <h3>Assembly & Testing</h3>
+
+      <div class="mb-4">
+        <h4>BOM & Component Sourcing</h4>
+        <img src="images/bom-sourcing.jpg" alt="BOM Sourcing" class="img-fluid rounded shadow mb-2">
+        <p>Components sourced from LCSC and local distributors. Total BOM cost: approx. $15.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Soldering</h4>
+        <img src="images/hand-soldering.jpg" alt="Soldering" class="img-fluid rounded shadow mb-2">
+        <p>Hand-soldered under magnification using leaded solder for ease of rework.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Testing Code Snippet</h4>
+        <img src="images/code-snippet.jpg" alt="Code Snippet" class="img-fluid rounded shadow mb-2">
+        <p><code>// Simple LED Blink Test<br>
+HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);</code></p>
+      </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="mb-5">
+      <h3>Conclusion</h3>
+
+      <div class="mb-4">
+        <h4>Future Improvements</h4>
+        <img src="images/future-improvements.jpg" alt="Future Improvements" class="img-fluid rounded shadow mb-2">
+        <p>Consider adding onboard debugger (ST-Link), USB-C, and additional protection circuits in future revisions.</p>
+      </div>
+
+      <div class="mb-4">
+        <h4>My Role</h4>
+        <img src="images/my-role.jpg" alt="My Role" class="img-fluid rounded shadow mb-2">
+        <p>I designed and developed the board end-to-end—from schematic and PCB layout to component sourcing, assembly, and firmware testing. I also documented the entire process for future iteration and reuse.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container text-center">
+    <p>&copy; <script>document.write(new Date().getFullYear());</script> Nqobile Sibisi | <a href="../index.html">Back to Home</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

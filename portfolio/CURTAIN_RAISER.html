@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GW INSTEK PSU CONTROL SOFTWARE | Nqobile Sibisi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/flexslider.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html#section-portfolio">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <section class="site-section">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-md-12 text-center">
+          <h2 class="mb-4">WIFI Automated curtain opener</h2>
+          <p class="lead">A Windows.NET c# based control interface for controlling a GW INSTEK PSU</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img src="images/project-monitoring-system.jpg" alt="Custom STM32 Dev Board" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+
+          <h4>Technologies Used</h4>
+          <ul>
+            <li>C++</li>
+            <li>WIFI</li>
+            <li>Servo motor control</li>
+            
+          </ul>
+
+          <h4>Project Overview</h4>
+          <p>The goal was to create a windows based PSU interface to controll the GW INSTEK PSU .</p>
+
+          <h3>Schematic Design</h3>
+
+          <h4>Microcontroller Selection</h4>
+          <p>STM32F107RCTx was selected for its integrated USB peripheral and rich I/O set.</p>
+
+          <h4>Power Supply Unit (PSU)</h4>
+          <p>Linear PSU based on the ASM1117-3.3 voltage regulatore was used to step down the +5v frrom the USB to3.3v , 
+            C1 and C2 are the input and output smoothing capacitors R1 which is the 1.5k ohms current limmiting resistor for the LED D1 which is the power indicator LED    .</p>
+
+          <h4>Crystal Oscillator Circuit</h4>
+          <p>Crystal and capacitor values were chosen to match the microcontroller’s requirements and ensure stable clocking.</p>
+
+          <h4>Communication Interfaces</h4>
+          <p>USB FS and UART headers were included for both firmware upload and serial debugging.</p>
+
+          <h4>Debug and LED Circuit</h4>
+          <p>SWD header for programming/debugging and 3 onboard LEDs for user output were integrated.</p>
+
+          <h4>I/O Mapping</h4>
+          <p>Common GPIOs were routed to headers for flexibility in testing peripherals , the LEDs D2,D3 and D4 together with their limmiting resistors R4,R5 and R65 ,.</p>
+
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-md-12">
+
+          <h3>PCB Layout</h3>
+
+          <h4>Footprint Assignment</h4>
+          <p>Components were selected for compactness and availability; footprints were verified in 3D view.</p>
+
+          <h4>Layer Count & Dimensions</h4>
+          <p>A 2-layer PCB design was used to minimize cost. Final dimensions: 80mm x 50mm.</p>
+
+          <h4>MCU Placement</h4>
+          <p>The microcontroller was centrally placed to reduce trace lengths to supporting components.</p>
+
+          <h3>PCB Fabrication</h3>
+
+          <h4>Gerber Output</h4>
+          <p>Standard Gerber and drill files were generated and verified using Gerber Viewer.</p>
+
+          <h4>Manufacturer</h4>
+          <p>JLCPCB was chosen for prototyping due to cost and turnaround time.</p>
+
+          <h4>Fabrication Specs</h4>
+          <p>FR4, 1.6mm thickness, 1oz copper, green solder mask.</p>
+
+          <h4>Cost & Delivery</h4>
+          <p>Total fabrication cost was under $10 with delivery within 7 business days.</p>
+
+          <h3>Assembly & Testing</h3>
+
+          <h4>BOM & Component Sourcing</h4>
+          <p>Components sourced from LCSC and local distributors. Total BOM cost: approx. $15.</p>
+
+          <h4>Soldering</h4>
+          <p>Hand-soldered under magnification using leaded solder for ease of rework.</p>
+
+          <h4>Testing Code Snippet</h4>
+          <p><code>// Simple LED Blink Test
+HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);</code></p>
+
+          <h3>Conclusion</h3>
+
+          <h4>Future Improvements</h4>
+          <p>Consider adding onboard debugger (ST-Link), USB-C, and additional protection circuits in future revisions.</p>
+
+          <h4>My Role</h4>
+          <p>I designed and developed the board end-to-end—from schematic and PCB layout to component sourcing, assembly, and firmware testing. I also documented the entire process for future iteration and reuse.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p>&copy; <script>document.write(new Date().getFullYear());</script> Nqobile Sibisi | <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
