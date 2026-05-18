@@ -37,10 +37,15 @@
         <p>The goal was to create a low-cost, compact STM32-based dev board with all essential interfaces exposed—USB, SWD, and mapped I/Os—along with three user/debug LEDs.</p>
       
         <div class="col-md-6">
-          <video width="630" height="360" controls>
-          <source src="../videos/STM32 Intro Video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video>
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/watch?v=sWbOfgnxDIc" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
       </div>
 
         <h4>Technologies Used</h4>
@@ -126,8 +131,11 @@
           <img src="../images/STM32 DEV BOARD-UART PULLUP RESISTORS.jpg" alt="UART Pull-ups" class="img-fluid rounded shadow">
         </div>
         <div class="col-md-6">
-          <h4>Communication Interfaces</h4>
-          <p>USB FS and UART headers were included for both firmware upload and serial debugging.</p>
+          <h4>UART Pullup Resistors</h4>
+          <p>The dedicated UART pins PA2,PA3,PB10,PB11,PA9,PA10 are tied to the 3.3V rail via the resistors (R7-R12),
+             This prevents these pins from floating into an unknown state during device power ups/reset which may be interpreted as a transmission of garbage data, 
+             a 10K resistor value was chosen as it provides a stable signal intergrity while drawing a small amount of current (~0.33 mA) when the pin is driven low.
+          </p>
         </div>
       </div>
 
@@ -138,9 +146,8 @@
         <div class="col-md-6">
           <h4>Debug and LED Circuit</h4>
           <p>
-        The LEDs D2, D3, and D4 are included for quick debugging. Each LED is connected to the 3.3 V rail through its respective current-limiting resistor (R4, R5, and R6), 
-        and the cathodes are connected to microcontroller pins PB8, PA1, and PC0. 
-        Because the anodes are tied to 3.3 V, the LEDs are activated by driving the microcontroller pins low.
+        The LEDs (D2, D3, and D4) are utilised for visual debugging and status checks.Each LED anode is tied to the 3.3 V rail via its respective current-limiting resistor (R4, R5, and R6). 
+        The cathodes are driven via the microcontroller pins PB8,PA1 and PC0.The LEDs are illuminated by driving the microcontroller pins low(0v),sinking the current.
         </p>
         </div>
       </div>
