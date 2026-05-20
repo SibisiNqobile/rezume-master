@@ -114,16 +114,12 @@
         <div class="col-md-6">
           <h4>Crystal Oscillator Circuit</h4>
           <p>
-            The crystal's load capacitance (CL) was taken from the datasheet, which specifies a value of 30 pF.
-            This is the capacitance required for the crystal to oscillate at its rated frequency. The stray
-            capacitance (Cs), which includes PCB trace, pin, and parasitic capacitances, was estimated to be 5 pF.
+          The crystal's load capacitance (CL) was taken from the datasheet, which specifies a value of 30 pF — this is the capacitance required for the crystal to oscillate at its rated frequency. Stray capacitance (Cs), 
+          which includes PCB trace, pin, and parasitic capacitances, was estimated at 5 pF, a typical value for a 2-layer FR-4 board with short crystal traces.
           </p>
           <p>
-            Using the formula for two equal capacitors connected to ground, the required capacitor value is:
-            CL = 2 × (CLo − Cs). Substituting the values gives: 2 × (30 pF − 5 pF) = 50 pF.
-          </p>
-          <p>
-            The nearest standard capacitor value, 51 pF, was selected for C12 and C13.
+          To find the required capacitor value C for C12 and C13, the formula C = 2 × (CL − Cs) was applied. 
+          Substituting the values gives: 2 × (30 pF − 5 pF) = 50 pF. The nearest standard capacitor value, 51 pF, was selected for C12 and C13.
           </p>
         </div>
       </div>
@@ -169,7 +165,7 @@
     <!-- PCB Layout -->
     <div class="mb-5">
       <h3>PCB Layout</h3>
-      
+
       <div class="mb-4">
         <h4>Layer Count &amp; Dimensions</h4>
         <img src="../images/pcb-dimensions.jpg" alt="PCB Dimensions" class="img-fluid rounded shadow mb-2">
