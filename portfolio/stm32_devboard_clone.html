@@ -103,7 +103,9 @@
         </div>
         <div class="col-md-6">
           <h4>Analogue Voltage Stabilisation and Filtering</h4>
-          <p>Ferrite beads and capacitors were used to stabilize the analog supply for precision components.</p>
+          <p>To ensure a clean, stable +3.3V analogue supply for precision components, a dedicated filtering stage was designed using a Murata BLM18AG601SN1D ferrite bead (FB1) in series with the analogue rail (+3.3VA), paired with a bulk decoupling capacitor (C9 – 1µF) and a high-frequency bypass capacitor (C8 – 10nF).
+            The BLM18AG601SN1D was selected for its 600Ω impedance at 100MHz, effectively attenuating high-frequency switching noise from the digital domain before it contaminates the analogue supply. A final 1µF output capacitor (C10) provides additional local decoupling at the point of load.
+            This π-filter topology (C–FB–C) is a proven technique for isolating sensitive analogue circuitry — particularly ADC reference voltages and sensor inputs — from digital ground bounce and power supply noise</p>
         </div>
       </div>
 
