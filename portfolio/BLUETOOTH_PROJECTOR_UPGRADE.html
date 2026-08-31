@@ -1,58 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>GW INSTEK PSU CONTROL SOFTWARE | Nqobile Sibisi</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/flexslider.css">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
-</head>
-<body>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <title>ESP32 Projector & Thermal Control Module | Portfolio</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <link rel="stylesheet" href="css/animate.css">
+          <link rel="stylesheet" href="css/flexslider.css">
+          <link rel="stylesheet" href="fonts/icomoon/style.css">
+          <link rel="stylesheet" href="css/bootstrap.css">
+          <link rel="stylesheet" href="css/style.css">
+          <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+        </head>
+        <body>
 
-  <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html#section-portfolio">← Back to Portfolio</a>
-    </div>
-  </nav>
+          <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="../index.html#section-portfolio">← Back to Portfolio</a>
+            </div>
+          </nav>
 
-  <section class="site-section">
-    <div class="container">
+          <section class="site-section">
+            <div class="container">
 
-      <div class="row mb-5">
-        <div class="col-md-12 text-center">
-          <h2 class="mb-4">GW INSTEK PSU CONTROL INTERFACE</h2>
-          <p class="lead">A Windows.NET c# based control interface for controlling a GW INSTEK PSU</p>
-        </div>
-      </div>
+              <!-- Title Header -->
+              <div class="row mb-5">
+                <div class="col-md-12 text-center">
+                  <h2 class="mb-4">ESP32 PROJECTOR & THERMAL CONTROL MODULE</h2>
+                  <p class="lead">An IoT hardware upgrade adding dynamic fan control, wireless connectivity, and custom web management.</p>
+                </div>
+              </div>
 
-      <div class="row align-items-center mb-5">
-        <div class="col-md-6">
-          <img src="images/project-monitoring-system.jpg" alt="Custom STM32 Dev Board" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-6">
+              <!-- Tech Stack & Image -->
+              <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <img src="images/project-monitoring-system.jpg" alt="ESP32 Projector Control PCB" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                  <h4>Technologies Used</h4>
+                  <ul>
+                    <li>ESP32 (Wi-Fi & Bluetooth)</li>
+                    <li>C / C++ (Embedded Firmware)</li>
+                    <li>USB-C to UART Bridge</li>
+                    <li>Optoelectronics / Optocouplers</li>
+                    <li>PWM Thermal Fan Control</li>
+                    <li>HTML5 / Web Dashboard</li>
+                  </ul>
+                </div>
+              </div>
 
-          <h4>Technologies Used</h4>
-          <ul>
-            <li>C++</li>
-            <li>BLUETOOTH-SERIAL COMMUNICATION</li>
-            <li>Opto electronics</li>
-          </ul>
+              <!-- Project Overview -->
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>Project Overview</h4>
+                  <p>
+                    After purchasing a budget Telefunken projector, I identified several hardware limitations that impacted usability—primarily excessive fan noise and a weak infrared remote that required close proximity to the receiver. To solve these pain points and introduce smart home integration, I implemented the following upgrades:
+                  </p>
+                  <ul>
+                    <li><strong>Thermal Management:</strong> Reduced noise levels by implementing a smart temperature-monitoring system that dynamically adjusts fan RPM based on real-time system thermals.</li>
+                    <li><strong>USB to UART Interface:</strong> Added a USB-C to UART interface to simplify firmware uploading, debugging, and future updates.</li>
+                    <li><strong>Wireless Control:</strong> Replaced the weak IR receiver with Bluetooth and Wi-Fi connectivity for seamless command execution.</li>
+                    <li><strong>Web Interface:</strong> Developed a responsive web dashboard to monitor and manage the projector control module remotely.</li>
+                  </ul>
+                  <p>
+                    The sections below document the end-to-end design process of the control module, from schematic design and custom PCB layout to the final user interface.
+                  </p>
+                </div>
+              </div>
 
-          <h4>Project Overview</h4>
-          <p>The goal was to create a windows based PSU interface to controll the GW INSTEK PSU .</p>
+            </div>
+          </section>
 
           <h3>Schematic Design</h3>
 
-          <h4>Microcontroller Selection</h4>
-          <p>STM32F107RCTx was selected for its integrated USB peripheral and rich I/O set.</p>
+          <h4>PSU Design</h4>
+          <p>coming soon </p>
 
-          <h4>Power Supply Unit (PSU)</h4>
-          <p>Linear PSU based on the ASM1117-3.3 voltage regulatore was used to step down the +5v frrom the USB to3.3v , 
-            C1 and C2 are the input and output smoothing capacitors R1 which is the 1.5k ohms current limmiting resistor for the LED D1 which is the power indicator LED    .</p>
 
           <h4>Crystal Oscillator Circuit</h4>
           <p>Crystal and capacitor values were chosen to match the microcontroller’s requirements and ensure stable clocking.</p>
