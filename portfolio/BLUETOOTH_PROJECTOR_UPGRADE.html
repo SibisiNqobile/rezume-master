@@ -67,8 +67,33 @@
         </div>
           <h3>Schematic Design</h3>
           <h4>PSU Design</h4>
-          <p>coming soon </p>
+          <p>The Power stage of this design was separated into three stages  </p>
+          <li><strong> Stage 1 -  </strong> 1 - 18V to 9v </li>  <p>to power the Cooling fan </p>
+          <li><strong> Stage 2 -  </strong> </li> <p> to drive the opto couplers </p>
+          <li><strong> Stage 3 -  </strong></li> <p> to power the ESP32 chip</p>
+
+          <p> The first two stages are based around the LM5007 Switching regulator from Texas instruments ,in order to get the basic circuits for each stage ,the WEBENCH Power designer web application was used to get the basic circuits for each and then from there ,
+            the circuits were optimised to get the best results and stability.  </p>
+
+        <div class="row align-items-center mb-4">
+          <div class="col-md-6">
+            <h4>Stage 1 and 2 input parameters</h4>
+            <img src="../images/Buck_Regulator_9v_ti_website.png" alt="Stage 1 design parameters" class="img-fluid rounded shadow">
+            <img src="../images/Buck_Regulator_9v_ti_website.png" alt="Stage 2 design parameters" class="img-fluid rounded shadow">
+          </div>
+
+        <div class="row align-items-center mb-4"> 
+          <div class="col-md-6">
+            <h4>Stage 1 input parameters</h4>
+            <img src="../images/Buck_Regulator_9v_ti_website.png" alt="Stage 2 design parameters" class="img-fluid rounded shadow">
+          </div>
+
+        <div class="col-md-6">
+            <p>This stage was designed to take in input voltage of 18-24 V and output a voltage of 9V 400mA,
+              this was the required voltage where the cooling fan ran with minimum noise </p>
+          </div>
         </div>
+      </div>
 
     </div>
   </section>
